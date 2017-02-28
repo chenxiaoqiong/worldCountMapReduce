@@ -11,5 +11,6 @@ hadoop2.7.3
 运行时指定输入参数：如果是idea可以这样指定：![](https://github.com/chenxiaoqiong/worldCountMapReduce/blob/master/imgs/1.jpg)
 
 windows运行效果：
+
 ![](https://github.com/chenxiaoqiong/worldCountMapReduce/blob/master/imgs/2.jpg)
 ![](https://github.com/chenxiaoqiong/worldCountMapReduce/blob/master/imgs/3.jpg)
