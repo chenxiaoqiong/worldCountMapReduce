@@ -12,5 +12,10 @@ hadoop2.7.3
 
 windows运行效果：
 
-输入文件 ![](https://github.com/chenxiaoqiong/worldCountMapReduce/blob/master/imgs/3.jpg)
-输出文件 ![](https://github.com/chenxiaoqiong/worldCountMapReduce/blob/master/imgs/2.jpg)
+输入文件 
+
+![](https://github.com/chenxiaoqiong/worldCountMapReduce/blob/master/imgs/3.jpg)
+
+输出文件 
+
+![](https://github.com/chenxiaoqiong/worldCountMapReduce/blob/master/imgs/2.jpg)
