@@ -1,4 +1,4 @@
-package com.duoduo.mapreduce;
+package com.candy.mapreduce;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -16,7 +16,7 @@ import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 
-public class WebPVMapReduce extends Configured implements Tool {
+public class WordCountMapReduce extends Configured implements Tool {
 
     public static class WordCountMapper
             extends Mapper<LongWritable, Text, Text, IntWritable> {
@@ -28,7 +28,7 @@ public class WebPVMapReduce extends Configured implements Tool {
         protected void map(LongWritable key, Text value, Context context)
                 throws IOException, InterruptedException {
             // TODO
-            String[] values = value.toString().split("\t");
+            String[] values = value.toString().split(" ");
             for (String vs : values) {
                 keyword.set(vs);
                 context.write(keyword, ints);
@@ -61,7 +61,7 @@ public class WebPVMapReduce extends Configured implements Tool {
 
         //创建job：
         Job job = Job.getInstance(conf, this.getClass().getSimpleName());
-        job.setJarByClass(WebPVMapReduce.class);
+        job.setJarByClass(WordCountMapReduce.class);
 
         //配置作业：
         // Input --> Map --> Reduce --> Output
@@ -91,7 +91,7 @@ public class WebPVMapReduce extends Configured implements Tool {
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-        int status = ToolRunner.run(conf, new WebPVMapReduce(), args);
+        int status = ToolRunner.run(conf, new WordCountMapReduce(), args);
         System.exit(status);
     }
 }
