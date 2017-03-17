@@ -16,8 +16,16 @@ import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 
+/**
+ * <h1> MapReduce实例（一） </h1>
+ * WordCountMapReduce：计算每个单词出现的次数
+ * Created by chenxiaoqiong on 2017/3/01 0017 下午 2:14.
+ */
 public class WordCountMapReduce extends Configured implements Tool {
 
+    /**
+     * map:处理输入文件，输出（单词 1）
+     */
     public static class WordCountMapper
             extends Mapper<LongWritable, Text, Text, IntWritable> {
 
@@ -36,6 +44,9 @@ public class WordCountMapReduce extends Configured implements Tool {
         }
     }
 
+    /**
+     * reduce：统计map输出，输出（单词，count）
+     */
     public static class WordCountReducer
             extends Reducer<Text, IntWritable, Text, IntWritable> {
 
@@ -44,8 +55,6 @@ public class WordCountMapReduce extends Configured implements Tool {
         @Override
         protected void reduce(Text key, Iterable<IntWritable> value, Context context)
                 throws IOException, InterruptedException {
-            // TODO Auto-generated method stub
-
             int sum = 0;
             for (IntWritable val : value) {
                 sum += val.get();
